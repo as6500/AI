@@ -803,22 +803,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Graph
   Nodes:
-  - {fileID: 578572884}
-  - {fileID: 1627680220}
-  - {fileID: 2014404005}
-  - {fileID: 362928207}
-  - {fileID: 2054542058}
-  - {fileID: 1172316765}
-  - {fileID: 3798961223947611188}
   - {fileID: 142305795}
-  - {fileID: 812555094}
-  - {fileID: 564813164}
+  - {fileID: 900860696}
+  - {fileID: 24385538}
+  - {fileID: 1486888508}
+  - {fileID: 3798961223947611188}
+  - {fileID: 1627680220}
+  - {fileID: 1716145854}
   - {fileID: 1925601856}
   - {fileID: 1163986658}
-  - {fileID: 1486888508}
-  - {fileID: 24385538}
-  - {fileID: 900860696}
-  - {fileID: 1716145854}
+  - {fileID: 564813164}
+  - {fileID: 362928207}
+  - {fileID: 2014404005}
+  - {fileID: 578572884}
+  - {fileID: 1172316765}
+  - {fileID: 812555094}
+  - {fileID: 2054542058}
 --- !u!4 &445438932
 Transform:
   m_ObjectHideFlags: 0
@@ -1501,6 +1501,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1812894128392114406, guid: 9a5d65641285fd94a95ae9b0437ec5c8, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1812894128392114406, guid: 9a5d65641285fd94a95ae9b0437ec5c8, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.2
+      objectReference: {fileID: 0}
     - target: {fileID: 1812894128392114406, guid: 9a5d65641285fd94a95ae9b0437ec5c8, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.56

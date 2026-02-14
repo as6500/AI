@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 
 public class Graph : MonoBehaviour
@@ -92,5 +93,57 @@ public class Graph : MonoBehaviour
 
         return new List<GraphNode>();
     }
-   
+    [ContextMenu("Ensure Bidirectional Connections")]
+    public void EnsureBidirectionalConnections()
+    {
+        if (Nodes == null || Nodes.Length == 0)
+        {
+            Debug.LogWarning("No nodes found to process.");
+            return;
+        }
+
+        int addedConnections = 0;
+
+        foreach (GraphNode node in Nodes)
+        {
+            if (node.Edges == null) continue;
+
+            foreach (GraphNode neighbor in node.Edges)
+            {
+                if (neighbor == null) continue;
+
+                // If the neighbor does not already have this node as an edge, add it
+                bool alreadyConnected = false;
+                if (neighbor.Edges != null)
+                {
+                    foreach (GraphNode n in neighbor.Edges)
+                    {
+                        if (n == node)
+                        {
+                            alreadyConnected = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (!alreadyConnected)
+                {
+                    // Create new edge array with extra slot
+                    int oldLength = neighbor.Edges != null ? neighbor.Edges.Length : 0;
+                    GraphNode[] newEdges = new GraphNode[oldLength + 1];
+                    if (neighbor.Edges != null)
+                        neighbor.Edges.CopyTo(newEdges, 0);
+                    newEdges[oldLength] = node;
+                    neighbor.Edges = newEdges;
+
+                    addedConnections++;
+                }
+            }
+        }
+
+        Debug.Log($"Bidirectional connections ensured. {addedConnections} new connections added.");
+
+        // Mark scene dirty so changes are saved
+        EditorUtility.SetDirty(this);
+    }
 }
