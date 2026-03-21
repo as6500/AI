@@ -2,7 +2,6 @@ using UnityEngine;
 
 public class AwfulTexture : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         Texture2D texture = new Texture2D(128, 128);
